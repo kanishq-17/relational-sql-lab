@@ -1,0 +1,36 @@
+{
+  "topics": [
+    {
+      "id": 101,
+      "img": "some kind of img idk",
+      "name": "Intro",
+      "title": "Introduction to SQL",
+      "subText": "random sub text here",
+      "level": "easy"
+    },
+    {
+      "id": 102,
+      "img": "some kind of img idk",
+      "name": "Basic",
+      "title": "SQL Basics",
+      "subText": "random sub text here",
+      "level": "easy"
+    },
+    {
+      "id": 103,
+      "img": "some kind of img idk",
+      "name": "CRUD",
+      "title": "CRUD Operations",
+      "subText": "random sub text here",
+      "level": "easy"
+    },
+    {
+      "id": 104,
+      "img": "some kind of img idk",
+      "name": "Joins",
+      "title": "Joins you should know",
+      "subText": "random sub text here",
+      "level": "easy"
+    }
+  ]
+}
