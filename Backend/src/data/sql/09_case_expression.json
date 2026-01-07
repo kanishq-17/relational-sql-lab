@@ -1,0 +1,59 @@
+{
+  "id": 109,
+  "topic": "case_expression",
+  "title": "CASE Expression in SQL",
+  "definition": "CASE expression is used to apply conditional logic in SQL queries, similar to if-else statements in programming.",
+
+  "base_table": {
+    "name": "employee",
+    "columns": ["emp_id", "full_name", "salary"],
+    "rows": [
+      [1, "Amit Sharma", 75000],
+      [2, "Neha Verma", 52000],
+      [3, "Rohit Jain", 45000],
+      [4, "Kavita Joshi", 38000]
+    ]
+  },
+
+  "queries": [
+    {
+      "description": "Categorize salary as HIGH or LOW",
+      "query": "SELECT full_name, salary, CASE WHEN salary >= 50000 THEN 'HIGH' ELSE 'LOW' END AS salary_category FROM employee;",
+      "output": {
+        "columns": ["full_name", "salary", "salary_category"],
+        "rows": [
+          ["Amit Sharma", 75000, "HIGH"],
+          ["Neha Verma", 52000, "HIGH"],
+          ["Rohit Jain", 45000, "LOW"],
+          ["Kavita Joshi", 38000, "LOW"]
+        ]
+      }
+    },
+    {
+      "description": "Categorize salary as HIGH, MID, or LOW",
+      "query": "SELECT full_name, salary, CASE WHEN salary >= 60000 THEN 'HIGH' WHEN salary >= 45000 THEN 'MID' ELSE 'LOW' END AS salary_category FROM employee;",
+      "output": {
+        "columns": ["full_name", "salary", "salary_category"],
+        "rows": [
+          ["Amit Sharma", 75000, "HIGH"],
+          ["Neha Verma", 52000, "MID"],
+          ["Rohit Jain", 45000, "MID"],
+          ["Kavita Joshi", 38000, "LOW"]
+        ]
+      }
+    },
+    {
+      "description": "Calculate bonus using CASE",
+      "query": "SELECT full_name, salary, CASE WHEN salary >= 50000 THEN salary * 0.10 ELSE salary * 0.05 END AS bonus FROM employee;",
+      "output": {
+        "columns": ["full_name", "salary", "bonus"],
+        "rows": [
+          ["Amit Sharma", 75000, 7500],
+          ["Neha Verma", 52000, 5200],
+          ["Rohit Jain", 45000, 2250],
+          ["Kavita Joshi", 38000, 1900]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "topic": "check_constraint",
+  "title": "CHECK Constraint in SQL",
+  "definition": "The CHECK constraint is used to enforce rules on column values and prevent invalid data from being inserted into a table.",
+
+  "sections": {
+    "basic_check_constraint": {
+      "heading": "Basic CHECK Constraint",
+      "definition": "Ensures that a column satisfies a specific condition.",
+      "queries": [
+        "CREATE TABLE employee (emp_id SERIAL PRIMARY KEY, name VARCHAR(100), salary INT CHECK (salary > 0));"
+      ]
+    },
+
+    "multiple_conditions": {
+      "heading": "CHECK with Multiple Conditions",
+      "definition": "Allows multiple conditions using logical operators.",
+      "queries": [
+        "CHECK (salary > 10000 AND salary < 200000)",
+        "CHECK (age >= 18 AND age <= 60)"
+      ]
+    },
+
+    "add_check_using_alter": {
+      "heading": "Add CHECK Constraint Using ALTER",
+      "definition": "Used to add a CHECK constraint to an existing table.",
+      "queries": [
+        "ALTER TABLE employee ADD CONSTRAINT salary_check CHECK (salary >= 30000);",
+        "ALTER TABLE student ADD CONSTRAINT marks_check CHECK (marks >= 0 AND marks <= 100);"
+      ]
+    },
+
+    "when_check_is_applied": {
+      "heading": "When CHECK Constraint is Applied",
+      "definition": "CHECK constraint is evaluated before data is inserted or updated.",
+      "points": [
+        "Prevents invalid data entry",
+        "Executed during INSERT and UPDATE operations",
+        "Helps enforce business rules at database level"
+      ]
+    },
+
+    "interview_summary": {
+      "heading": "Interview Ready Summary",
+      "points": [
+        "CHECK constraint enforces business rules",
+        "It prevents invalid data from entering the table",
+        "It can be added during table creation or later using ALTER",
+        "CHECK is evaluated before data insertion or update"
+      ]
+    }
+  }
+}

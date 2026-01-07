@@ -1,0 +1,111 @@
+{
+  "id": 110,
+  "topic": "relationships",
+  "title": "Relationships in SQL",
+  "definition": "Relationships define how tables are connected to each other using primary keys and foreign keys.",
+
+  "one_to_one": {
+    "heading": "One-to-One Relationship",
+    "definition": "One record in table A is related to exactly one record in table B.",
+
+    "query": "CREATE TABLE users (user_id SERIAL PRIMARY KEY, username VARCHAR(100));",
+    "table_output": {
+      "columns": ["user_id", "username"],
+      "rows": [
+        [1, "rahul01"],
+        [2, "neha02"]
+      ]
+    }
+  },
+
+  "one_to_many": {
+    "heading": "One-to-Many Relationship",
+    "definition": "One record in table A can be related to multiple records in table B.",
+
+    "queries": {
+      "customers": {
+        "query": "CREATE TABLE customers (cust_id SERIAL PRIMARY KEY, cust_name VARCHAR(100));",
+        "table_output": {
+          "columns": ["cust_id", "cust_name"],
+          "rows": [
+            [1, "Rahul Meena"],
+            [2, "Kavita Joshi"]
+          ]
+        }
+      },
+      "orders": {
+        "query": "CREATE TABLE orders (order_id SERIAL PRIMARY KEY, order_date DATE, price NUMERIC, cust_id INT, FOREIGN KEY (cust_id) REFERENCES customers(cust_id));",
+        "table_output": {
+          "columns": ["order_id", "order_date", "price", "cust_id"],
+          "rows": [
+            [101, "2024-01-10", 2500, 1],
+            [102, "2024-01-12", 1800, 1],
+            [103, "2024-01-15", 3000, 2]
+          ]
+        }
+      }
+    },
+
+    "pk_fk_comparison": {
+      "primary_key_table": {
+        "table": "customers",
+        "column": "cust_id",
+        "values": [1, 2]
+      },
+      "foreign_key_table": {
+        "table": "orders",
+        "column": "cust_id",
+        "values": [1, 1, 2]
+      }
+    }
+  },
+
+  "many_to_many": {
+    "heading": "Many-to-Many Relationship",
+    "definition": "Many records in table A can relate to many records in table B using a junction table.",
+
+    "tables": {
+      "students": {
+        "query": "CREATE TABLE students (student_id SERIAL PRIMARY KEY, name VARCHAR(100));",
+        "table_output": {
+          "columns": ["student_id", "name"],
+          "rows": [
+            [1, "Amit"],
+            [2, "Neha"]
+          ]
+        }
+      },
+      "courses": {
+        "query": "CREATE TABLE courses (course_id SERIAL PRIMARY KEY, course_name VARCHAR(100));",
+        "table_output": {
+          "columns": ["course_id", "course_name"],
+          "rows": [
+            [101, "SQL"],
+            [102, "MongoDB"]
+          ]
+        }
+      },
+      "enrollment": {
+        "query": "CREATE TABLE enrollment (enroll_id SERIAL PRIMARY KEY, student_id INT, course_id INT, FOREIGN KEY (student_id) REFERENCES students(student_id), FOREIGN KEY (course_id) REFERENCES courses(course_id));",
+        "table_output": {
+          "columns": ["enroll_id", "student_id", "course_id"],
+          "rows": [
+            [1, 1, 101],
+            [2, 1, 102],
+            [3, 2, 101]
+          ]
+        }
+      }
+    },
+
+    "pk_fk_comparison": {
+      "students_pk": [1, 2],
+      "courses_pk": [101, 102],
+      "enrollment_fk": [
+        { "student_id": 1, "course_id": 101 },
+        { "student_id": 1, "course_id": 102 },
+        { "student_id": 2, "course_id": 101 }
+      ]
+    }
+  }
+}
