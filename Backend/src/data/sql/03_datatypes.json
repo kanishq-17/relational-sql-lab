@@ -1,0 +1,118 @@
+{
+  "id": 103,
+  "topic": "datatypes",
+  "title": "SQL Data Types",
+  "description": "SQL data types define the kind of data that can be stored in a table column. Choosing the correct data type is essential for data integrity and performance.",
+
+  "sections": {
+    "numeric_datatypes": {
+      "heading": "Numeric Data Types",
+      "content": {
+        "points": [
+          "INT – Stores whole numbers",
+          "SMALLINT – Stores smaller range of integers",
+          "BIGINT – Stores very large integers",
+          "DECIMAL(p, s) – Stores exact numeric values with precision",
+          "FLOAT – Stores approximate floating-point numbers",
+          "DOUBLE PRECISION – Stores high-precision floating-point numbers"
+        ]
+      }
+    },
+
+    "string_datatypes": {
+      "heading": "String / Character Data Types",
+      "content": {
+        "points": [
+          "CHAR(n) – Fixed-length character string",
+          "VARCHAR(n) – Variable-length character string",
+          "TEXT – Stores unlimited length text"
+        ]
+      }
+    },
+
+    "date_time_datatypes": {
+      "heading": "Date and Time Data Types",
+      "content": {
+        "points": [
+          "DATE – Stores date (YYYY-MM-DD)",
+          "TIME – Stores time (HH:MM:SS)",
+          "TIMESTAMP – Stores date and time together",
+          "TIMESTAMPTZ – Stores timestamp with timezone"
+        ]
+      }
+    },
+
+    "boolean_datatype": {
+      "heading": "Boolean Data Type",
+      "content": {
+        "points": ["BOOLEAN – Stores TRUE or FALSE values"]
+      }
+    },
+
+    "other_common_datatypes": {
+      "heading": "Other Common Data Types",
+      "content": {
+        "points": [
+          "SERIAL – Auto-incrementing integer (PostgreSQL specific)",
+          "UUID – Stores universally unique identifiers",
+          "JSON – Stores JSON data",
+          "JSONB – Stores binary JSON (optimized for querying)"
+        ]
+      }
+    },
+
+    "constraints_overview": {
+      "heading": "Constraints in SQL",
+      "content": {
+        "description": "Constraints are rules applied to table columns to enforce data integrity.",
+        "types": [
+          "PRIMARY KEY – Uniquely identifies each row",
+          "NOT NULL – Prevents NULL values",
+          "UNIQUE – Ensures unique values",
+          "DEFAULT – Provides a default value",
+          "CHECK – Ensures condition-based validation"
+        ]
+      }
+    },
+
+    "complete_example": {
+      "heading": "Complete Example Using Multiple Data Types",
+      "content": {
+        "create_database": {
+          "query": "CREATE DATABASE company_db;"
+        },
+
+        "create_table": {
+          "query": "CREATE TABLE employees (\n  emp_id SERIAL PRIMARY KEY,\n  full_name VARCHAR(100) NOT NULL,\n  age INT,\n  salary DECIMAL(10,2),\n  is_active BOOLEAN DEFAULT true,\n  joining_date DATE,\n  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);"
+        },
+
+        "insert_data": {
+          "query": "INSERT INTO employees (full_name, age, salary, is_active, joining_date)\nVALUES ('Rahul Meena', 25, 45000.50, true, '2023-06-15');"
+        },
+
+        "table_output": {
+          "columns": [
+            "emp_id",
+            "full_name",
+            "age",
+            "salary",
+            "is_active",
+            "joining_date",
+            "created_at"
+          ],
+          "rows": [
+            [
+              1,
+              "Rahul Meena",
+              25,
+              45000.5,
+              true,
+              "2023-06-15",
+              "2023-06-15 10:30:00"
+            ]
+          ]
+        }
+      }
+    }
+  }
+}

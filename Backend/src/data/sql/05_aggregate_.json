@@ -1,0 +1,95 @@
+{
+  "id": 105,
+  "topic": "aggregate",
+  "title": "Aggregate Functions in SQL",
+  "definition": "Aggregate functions perform calculations on multiple rows of a table and return a single value.",
+
+  "sections": {
+    "count_function": {
+      "heading": "COUNT Function",
+      "definition": "COUNT returns the total number of rows that match a specified condition.",
+      "queries": [
+        "SELECT COUNT(emp_id) FROM employee;",
+        "SELECT COUNT(*) FROM employee;",
+        "SELECT COUNT(DISTINCT dept) FROM employee;",
+        "SELECT COUNT(emp_id) FROM employee WHERE dept = 'IT';"
+      ]
+    },
+
+    "sum_function": {
+      "heading": "SUM Function",
+      "definition": "SUM returns the total value of a numeric column.",
+      "queries": [
+        "SELECT SUM(salary) FROM employee;",
+        "SELECT SUM(salary) FROM employee WHERE dept = 'IT';",
+        "SELECT SUM(bonus) FROM employee;",
+        "SELECT SUM(salary + bonus) FROM employee;"
+      ]
+    },
+
+    "avg_function": {
+      "heading": "AVG Function",
+      "definition": "AVG returns the average value of a numeric column.",
+      "queries": [
+        "SELECT AVG(salary) FROM employee;",
+        "SELECT AVG(salary) FROM employee WHERE dept = 'HR';",
+        "SELECT AVG(age) FROM employee;",
+        "SELECT AVG(salary) FROM employee WHERE city = 'Delhi';"
+      ]
+    },
+
+    "min_max_function": {
+      "heading": "MIN and MAX Functions",
+      "definition": "MIN returns the smallest value and MAX returns the largest value in a column.",
+      "queries": [
+        "SELECT MIN(salary) FROM employee;",
+        "SELECT MAX(salary) FROM employee;",
+        "SELECT MIN(age) FROM employee;",
+        "SELECT MAX(age) FROM employee;"
+      ]
+    },
+
+    "group_by_clause": {
+      "heading": "GROUP BY Clause",
+      "definition": "GROUP BY groups rows that have the same values so that aggregate functions can be applied on each group.",
+      "queries": [
+        "SELECT dept FROM employee GROUP BY dept;",
+        "SELECT dept, COUNT(emp_id) FROM employee GROUP BY dept;",
+        "SELECT dept, SUM(salary) FROM employee GROUP BY dept;",
+        "SELECT city, AVG(salary) FROM employee GROUP BY city;"
+      ]
+    },
+
+    "combined_example": {
+      "heading": "Combined Aggregate Example",
+      "table": {
+        "name": "employee",
+        "columns": ["emp_id", "full_name", "dept", "salary"],
+        "rows": [
+          [1, "Amit Sharma", "IT", 75000],
+          [2, "Neha Verma", "HR", 52000],
+          [3, "Rohit Jain", "IT", 68000],
+          [4, "Kavita Joshi", "Finance", 60000]
+        ]
+      },
+      "queries_with_output": [
+        {
+          "query": "SELECT dept, COUNT(emp_id) FROM employee GROUP BY dept;",
+          "output": [
+            ["IT", 2],
+            ["HR", 1],
+            ["Finance", 1]
+          ]
+        },
+        {
+          "query": "SELECT dept, AVG(salary) FROM employee GROUP BY dept;",
+          "output": [
+            ["IT", 71500],
+            ["HR", 52000],
+            ["Finance", 60000]
+          ]
+        }
+      ]
+    }
+  }
+}

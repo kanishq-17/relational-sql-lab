@@ -1,0 +1,147 @@
+{
+  "id": 104,
+  "topic": "clause",
+  "title": "SQL Clauses",
+  "definition": "SQL clauses are used to filter, sort, limit, and search data returned by SQL queries.",
+
+  "sections": {
+    "where_clause": {
+      "heading": "WHERE Clause",
+      "definition": "The WHERE clause is used to filter records based on specified conditions.",
+
+      "operations": {
+        "relational_operators": {
+          "operators": ["=", "!=", ">", "<", ">=", "<="],
+          "queries": [
+            "SELECT * FROM employee WHERE salary = 50000;",
+            "SELECT * FROM employee WHERE age > 30;",
+            "SELECT * FROM employee WHERE salary <= 40000;",
+            "SELECT * FROM employee WHERE age != 25;"
+          ]
+        },
+
+        "logical_operators": {
+          "operators": ["AND", "OR", "NOT"],
+          "queries": [
+            "SELECT * FROM employee WHERE dept = 'IT' AND salary > 60000;",
+            "SELECT * FROM employee WHERE dept = 'HR' OR dept = 'Finance';",
+            "SELECT * FROM employee WHERE NOT dept = 'Sales';",
+            "SELECT * FROM employee WHERE age > 25 AND city = 'Delhi';"
+          ]
+        },
+
+        "in_not_in": {
+          "queries": [
+            "SELECT * FROM employee WHERE dept IN ('IT', 'HR');",
+            "SELECT * FROM employee WHERE city IN ('Delhi', 'Mumbai');",
+            "SELECT * FROM employee WHERE dept NOT IN ('Sales', 'Support');",
+            "SELECT * FROM employee WHERE age NOT IN (22, 23);"
+          ]
+        },
+
+        "between": {
+          "queries": [
+            "SELECT * FROM employee WHERE salary BETWEEN 40000 AND 80000;",
+            "SELECT * FROM employee WHERE age BETWEEN 25 AND 35;",
+            "SELECT * FROM employee WHERE joining_year BETWEEN 2020 AND 2023;",
+            "SELECT * FROM employee WHERE emp_id BETWEEN 5 AND 10;"
+          ]
+        }
+      }
+    },
+
+    "distinct_clause": {
+      "heading": "DISTINCT Clause",
+      "definition": "The DISTINCT clause is used to remove duplicate values from the result set.",
+
+      "queries": [
+        "SELECT DISTINCT dept FROM employee;",
+        "SELECT DISTINCT city FROM employee;",
+        "SELECT DISTINCT salary FROM employee;",
+        "SELECT DISTINCT joining_year FROM employee;"
+      ]
+    },
+
+    "order_by_clause": {
+      "heading": "ORDER BY Clause",
+      "definition": "The ORDER BY clause is used to sort the result set in ascending or descending order.",
+
+      "queries": [
+        "SELECT * FROM employee ORDER BY full_name;",
+        "SELECT * FROM employee ORDER BY salary DESC;",
+        "SELECT * FROM employee ORDER BY age ASC;",
+        "SELECT * FROM employee ORDER BY dept, salary DESC;"
+      ]
+    },
+
+    "limit_clause": {
+      "heading": "LIMIT Clause",
+      "definition": "The LIMIT clause is used to restrict the number of rows returned.",
+
+      "queries": [
+        "SELECT * FROM employee LIMIT 5;",
+        "SELECT * FROM employee ORDER BY salary DESC LIMIT 3;",
+        "SELECT * FROM employee LIMIT 10;",
+        "SELECT * FROM employee WHERE dept = 'IT' LIMIT 2;"
+      ]
+    },
+
+    "like_clause": {
+      "heading": "LIKE Clause",
+      "definition": "The LIKE clause is used for pattern matching in text values.",
+
+      "queries": [
+        "SELECT * FROM employee WHERE full_name LIKE 'A%';",
+        "SELECT * FROM employee WHERE full_name LIKE '%a';",
+        "SELECT * FROM employee WHERE full_name LIKE '%it%';",
+        "SELECT * FROM employee WHERE dept LIKE '_T';"
+      ]
+    },
+
+    "combined_example": {
+      "heading": "Combined Clause Example",
+
+      "table": {
+        "name": "employee",
+        "columns": ["emp_id", "full_name", "dept", "salary", "city"],
+        "rows": [
+          [1, "Amit Sharma", "IT", 75000, "Delhi"],
+          [2, "Neha Verma", "HR", 52000, "Mumbai"],
+          [3, "Rohit Jain", "IT", 68000, "Delhi"],
+          [4, "Kavita Joshi", "Finance", 60000, "Pune"],
+          [5, "Suresh Kumar", "IT", 45000, "Delhi"]
+        ]
+      },
+
+      "queries_with_output": [
+        {
+          "query": "SELECT * FROM employee WHERE dept = 'IT';",
+          "output_rows": [
+            [1, "Amit Sharma", "IT", 75000, "Delhi"],
+            [3, "Rohit Jain", "IT", 68000, "Delhi"],
+            [5, "Suresh Kumar", "IT", 45000, "Delhi"]
+          ]
+        },
+        {
+          "query": "SELECT DISTINCT city FROM employee;",
+          "output_rows": [["Delhi"], ["Mumbai"], ["Pune"]]
+        },
+        {
+          "query": "SELECT * FROM employee ORDER BY salary DESC;",
+          "output_rows": [
+            [1, "Amit Sharma", "IT", 75000, "Delhi"],
+            [3, "Rohit Jain", "IT", 68000, "Delhi"],
+            [4, "Kavita Joshi", "Finance", 60000, "Pune"]
+          ]
+        },
+        {
+          "query": "SELECT * FROM employee WHERE city = 'Delhi' ORDER BY salary DESC LIMIT 2;",
+          "output_rows": [
+            [1, "Amit Sharma", "IT", 75000, "Delhi"],
+            [3, "Rohit Jain", "IT", 68000, "Delhi"]
+          ]
+        }
+      ]
+    }
+  }
+}
