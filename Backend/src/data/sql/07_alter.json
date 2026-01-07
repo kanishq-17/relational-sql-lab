@@ -1,0 +1,81 @@
+{
+  "id": 107,
+  "topic": "alter",
+  "title": "ALTER TABLE in SQL",
+  "definition": "The ALTER TABLE statement is used to modify the structure of an existing table without deleting the table itself.",
+
+  "sections": {
+    "add_column": {
+      "heading": "Add Column",
+      "definition": "Used to add a new column to an existing table.",
+      "queries": [
+        "ALTER TABLE person ADD COLUMN city VARCHAR(50);",
+        "ALTER TABLE employee ADD COLUMN age INT;",
+        "ALTER TABLE student ADD COLUMN marks INT;"
+      ]
+    },
+
+    "drop_column": {
+      "heading": "Drop Column",
+      "definition": "Used to remove an existing column from a table.",
+      "queries": [
+        "ALTER TABLE person DROP COLUMN city;",
+        "ALTER TABLE employee DROP COLUMN age;"
+      ]
+    },
+
+    "add_column_with_default": {
+      "heading": "Add Column with Default Value",
+      "definition": "Adds a column and assigns a default value to existing rows.",
+      "queries": [
+        "ALTER TABLE person ADD COLUMN city VARCHAR(50) DEFAULT 'Jodhpur';",
+        "ALTER TABLE employee ADD COLUMN status VARCHAR(20) DEFAULT 'active';"
+      ]
+    },
+
+    "rename_column": {
+      "heading": "Rename Column",
+      "definition": "Used to change the name of an existing column.",
+      "queries": [
+        "ALTER TABLE person RENAME COLUMN name TO full_name;",
+        "ALTER TABLE employee RENAME COLUMN dept TO department;"
+      ]
+    },
+
+    "rename_table": {
+      "heading": "Rename Table",
+      "definition": "Used to change the name of an existing table.",
+      "queries": [
+        "ALTER TABLE person RENAME TO people;",
+        "ALTER TABLE employee RENAME TO employees;"
+      ]
+    },
+
+    "change_data_type": {
+      "heading": "Change Data Type",
+      "definition": "Used to modify the data type of an existing column.",
+      "queries": [
+        "ALTER TABLE person ALTER COLUMN city SET DATA TYPE VARCHAR(250);",
+        "ALTER TABLE employee ALTER COLUMN salary SET DATA TYPE DECIMAL(10,2);"
+      ]
+    },
+
+    "set_and_drop_default": {
+      "heading": "Set and Drop Default Value",
+      "definition": "Used to assign or remove a default value from a column.",
+      "queries": [
+        "ALTER TABLE person ALTER COLUMN city SET DEFAULT 'unknown';",
+        "ALTER TABLE person ALTER COLUMN city DROP DEFAULT;"
+      ]
+    },
+
+    "set_not_null": {
+      "heading": "Set NOT NULL Constraint",
+      "definition": "Ensures that a column cannot store NULL values.",
+      "queries": [
+        "ALTER TABLE person ALTER COLUMN city SET NOT NULL;",
+        "ALTER TABLE employee ALTER COLUMN salary SET NOT NULL;"
+      ]
+    }
+  }
+}

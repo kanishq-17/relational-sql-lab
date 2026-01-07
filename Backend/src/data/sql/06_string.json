@@ -1,0 +1,95 @@
+{
+  "topic": "string",
+  "title": "String Functions in SQL",
+  "definition": "String functions are used to manipulate and work with text or character data in SQL.",
+
+  "sections": {
+    "concat_function": {
+      "heading": "CONCAT Function",
+      "definition": "CONCAT joins two or more strings together.",
+      "queries": [
+        "SELECT CONCAT('hello', 'world');",
+        "SELECT CONCAT(fname, lname) FROM employee;",
+        "SELECT CONCAT(fname, ' ', lname) AS full_name FROM employee;",
+        "SELECT CONCAT(city, '-', dept) FROM employee;"
+      ]
+    },
+
+    "concat_ws_function": {
+      "heading": "CONCAT_WS Function",
+      "definition": "CONCAT_WS concatenates strings using a specified separator.",
+      "queries": [
+        "SELECT CONCAT_WS(' ', fname, lname) FROM employee;",
+        "SELECT CONCAT_WS('-', city, dept) FROM employee;",
+        "SELECT CONCAT_WS(',', fname, lname, city) FROM employee;",
+        "SELECT CONCAT_WS(':', emp_id, fname) FROM employee;"
+      ]
+    },
+
+    "substring_function": {
+      "heading": "SUBSTRING Function",
+      "definition": "SUBSTRING extracts a part of a string.",
+      "queries": [
+        "SELECT SUBSTRING('PostgreSQL', 1, 4);",
+        "SELECT SUBSTRING(fname, 1, 3) FROM employee;",
+        "SELECT SUBSTRING(city, 2, 3) FROM employee;",
+        "SELECT SUBSTRING(dept FROM 1 FOR 2) FROM employee;"
+      ]
+    },
+
+    "replace_function": {
+      "heading": "REPLACE Function",
+      "definition": "REPLACE substitutes all occurrences of a substring with another string.",
+      "queries": [
+        "SELECT REPLACE('hey buddy', 'hey', 'hello');",
+        "SELECT REPLACE(city, 'Delhi', 'New Delhi') FROM employee;",
+        "SELECT REPLACE(fname, 'a', '@') FROM employee;",
+        "SELECT REPLACE(dept, 'IT', 'Tech') FROM employee;"
+      ]
+    },
+
+    "case_and_length_functions": {
+      "heading": "Case and Length Functions",
+      "definition": "These functions change case and measure string length.",
+      "queries": [
+        "SELECT UPPER(fname) FROM employee;",
+        "SELECT LOWER(lname) FROM employee;",
+        "SELECT LENGTH(fname) FROM employee;",
+        "SELECT LENGTH(CONCAT(fname, lname)) FROM employee;"
+      ]
+    },
+
+    "left_right_functions": {
+      "heading": "LEFT and RIGHT Functions",
+      "definition": "LEFT and RIGHT extract characters from the beginning or end of a string.",
+      "queries": [
+        "SELECT LEFT('PostgreSQL', 4);",
+        "SELECT RIGHT('PostgreSQL', 4);",
+        "SELECT LEFT(fname, 2) FROM employee;",
+        "SELECT RIGHT(city, 3) FROM employee;"
+      ]
+    },
+
+    "trim_function": {
+      "heading": "TRIM Function",
+      "definition": "TRIM removes leading and trailing spaces from a string.",
+      "queries": [
+        "SELECT TRIM('  hello  ');",
+        "SELECT TRIM(fname) FROM employee;",
+        "SELECT TRIM(BOTH FROM city) FROM employee;",
+        "SELECT TRIM(' ' FROM dept) FROM employee;"
+      ]
+    },
+
+    "position_function": {
+      "heading": "POSITION Function",
+      "definition": "POSITION returns the position of a substring within a string.",
+      "queries": [
+        "SELECT POSITION('he' IN 'hello');",
+        "SELECT POSITION('a' IN fname) FROM employee;",
+        "SELECT POSITION('i' IN city) FROM employee;",
+        "SELECT POSITION('T' IN dept) FROM employee;"
+      ]
+    }
+  }
+}
