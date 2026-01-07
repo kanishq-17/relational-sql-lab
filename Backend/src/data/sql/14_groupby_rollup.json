@@ -1,0 +1,73 @@
+{
+  "id": 114,
+  "topic": "groupby_rollup",
+  "title": "GROUP BY with ROLLUP in SQL",
+  "definition": "ROLLUP is an extension of GROUP BY that generates subtotal rows and a grand total row along with grouped data.",
+
+  "base_table": {
+    "name": "billing_info",
+    "columns": ["bill_id", "p_name", "total_price"],
+    "rows": [
+      [1, "Laptop", 55000],
+      [2, "Laptop", 60000],
+      [3, "Mobile", 25000],
+      [4, "Mobile", 30000],
+      [5, "Tablet", 20000]
+    ]
+  },
+
+  "sections": {
+    "why_rollup": {
+      "heading": "Why use ROLLUP?",
+      "points": [
+        "Generates subtotal rows",
+        "Provides a grand total",
+        "Very useful in reporting queries",
+        "Avoids multiple UNION queries"
+      ]
+    },
+
+    "basic_rollup_syntax": {
+      "heading": "Basic ROLLUP Syntax",
+      "query": "SELECT p_name, SUM(total_price) FROM billing_info GROUP BY ROLLUP(p_name);"
+    },
+
+    "rollup_example": {
+      "heading": "ROLLUP Example",
+      "query": "SELECT p_name, SUM(total_price) FROM billing_info GROUP BY ROLLUP(p_name);",
+      "output": {
+        "columns": ["p_name", "sum"],
+        "rows": [
+          ["Laptop", 115000],
+          ["Mobile", 55000],
+          ["Tablet", 20000],
+          [null, 190000]
+        ]
+      }
+    },
+
+    "handling_null_values": {
+      "heading": "Handling NULL values in ROLLUP",
+      "definition": "ROLLUP creates a NULL row for the grand total. COALESCE is used to replace NULL with a meaningful label.",
+      "query": "SELECT COALESCE(p_name, 'TOTAL') AS product, SUM(total_price) FROM billing_info GROUP BY ROLLUP(p_name);",
+      "output": {
+        "columns": ["product", "sum"],
+        "rows": [
+          ["Laptop", 115000],
+          ["Mobile", 55000],
+          ["Tablet", 20000],
+          ["TOTAL", 190000]
+        ]
+      }
+    },
+
+    "interview_tip": {
+      "heading": "Interview Tip",
+      "points": [
+        "ROLLUP is mainly used for reporting",
+        "It automatically adds subtotal and grand total rows",
+        "ROLLUP reduces query complexity"
+      ]
+    }
+  }
+}

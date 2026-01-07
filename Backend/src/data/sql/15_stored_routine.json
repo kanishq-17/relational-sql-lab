@@ -1,0 +1,76 @@
+{
+  "id": 115,
+  "topic": "stored_routine",
+  "title": "Stored Routines in SQL",
+  "definition": "A stored routine is a set of SQL statements stored in the database that can be executed repeatedly.",
+
+  "sections": {
+    "types_of_stored_routines": {
+      "heading": "Types of Stored Routines",
+      "points": ["Stored Procedures", "User Defined Functions (UDF)"]
+    },
+
+    "stored_procedure": {
+      "heading": "Stored Procedure",
+      "definition": "A stored procedure is used to perform actions like INSERT, UPDATE, or DELETE.",
+
+      "basic_syntax": {
+        "query": "CREATE OR REPLACE PROCEDURE procedure_name(parameters) LANGUAGE plpgsql AS $$ BEGIN -- SQL logic END; $$;"
+      },
+
+      "update_salary_example": {
+        "heading": "Example: Update Employee Salary",
+        "query": "CREATE OR REPLACE PROCEDURE update_emp_salary(p_employee_id INT, p_new_salary NUMERIC) LANGUAGE plpgsql AS $$ BEGIN UPDATE employee SET salary = p_new_salary WHERE emp_id = p_employee_id; END; $$;",
+        "call": "CALL update_emp_salary(3, 83549);"
+      },
+
+      "insert_employee_example": {
+        "heading": "Example: Insert New Employee",
+        "query": "CREATE OR REPLACE PROCEDURE add_employee(p_fname VARCHAR, p_lname VARCHAR, p_email VARCHAR, p_dept VARCHAR, p_salary NUMERIC) LANGUAGE plpgsql AS $$ BEGIN INSERT INTO employee(fname, lname, email, dept, salary) VALUES (p_fname, p_lname, p_email, p_dept, p_salary); END; $$;",
+        "call": "CALL add_employee('Alex', 'Brown', 'alex@mail.com', 'IT', 55000);"
+      }
+    },
+
+    "user_defined_function": {
+      "heading": "User Defined Function (UDF)",
+      "definition": "A function returns a value and is commonly used in SELECT queries.",
+
+      "basic_syntax": {
+        "query": "CREATE OR REPLACE FUNCTION function_name(parameters) RETURNS return_type LANGUAGE plpgsql AS $$ BEGIN RETURN value; END; $$;"
+      },
+
+      "function_example": {
+        "heading": "Example: Max Salary Employee by Department",
+        "query": "CREATE OR REPLACE FUNCTION dept_max_sal_emp(dept_name VARCHAR) RETURNS TABLE(emp_id INT, fname VARCHAR, salary NUMERIC) LANGUAGE plpgsql AS $$ BEGIN RETURN QUERY SELECT e.emp_id, e.fname, e.salary FROM employees e WHERE e.dept = dept_name AND e.salary = (SELECT MAX(emp.salary) FROM employees emp WHERE emp.dept = dept_name); END; $$;",
+        "usage": "SELECT * FROM dept_max_sal_emp('IT');"
+      }
+    },
+
+    "procedure_vs_function": {
+      "heading": "Procedure vs Function",
+      "comparison": [
+        {
+          "procedure": "Performs actions",
+          "function": "Returns a value"
+        },
+        {
+          "procedure": "Called using CALL",
+          "function": "Used in SELECT queries"
+        },
+        {
+          "procedure": "Return not mandatory",
+          "function": "Return is mandatory"
+        }
+      ]
+    },
+
+    "interview_tips": {
+      "heading": "Interview Tips",
+      "points": [
+        "Use procedures for transactions and updates",
+        "Use functions for calculations and reusable logic",
+        "Functions are preferred inside SELECT queries"
+      ]
+    }
+  }
+}
