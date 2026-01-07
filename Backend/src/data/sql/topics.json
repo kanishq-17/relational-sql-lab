@@ -2,35 +2,147 @@
   "topics": [
     {
       "id": 101,
-      "img": "some kind of img idk",
+      "img": "sql_intro",
       "name": "Intro",
       "title": "Introduction to SQL",
-      "subText": "random sub text here",
+      "subText": "What SQL is and why databases need it",
       "level": "easy"
     },
     {
       "id": 102,
-      "img": "some kind of img idk",
+      "img": "sql_basic",
       "name": "Basic",
       "title": "SQL Basics",
-      "subText": "random sub text here",
+      "subText": "Tables, rows, columns and basic concepts",
       "level": "easy"
     },
     {
       "id": 103,
-      "img": "some kind of img idk",
-      "name": "CRUD",
-      "title": "CRUD Operations",
-      "subText": "random sub text here",
+      "img": "sql_datatypes",
+      "name": "DataTypes",
+      "title": "SQL Data Types",
+      "subText": "Different types of data stored in SQL",
       "level": "easy"
     },
     {
       "id": 104,
-      "img": "some kind of img idk",
-      "name": "Joins",
-      "title": "Joins you should know",
-      "subText": "random sub text here",
+      "img": "sql_crud",
+      "name": "CRUD",
+      "title": "CRUD Operations",
+      "subText": "Create, Read, Update and Delete data",
       "level": "easy"
+    },
+    {
+      "id": 105,
+      "img": "sql_conditions",
+      "name": "Conditions",
+      "title": "Conditional Queries",
+      "subText": "Filtering data using conditions",
+      "level": "easy"
+    },
+    {
+      "id": 106,
+      "img": "sql_aggregate",
+      "name": "Aggregate",
+      "title": "Aggregate Functions",
+      "subText": "COUNT, SUM, AVG and other aggregates",
+      "level": "easy"
+    },
+    {
+      "id": 107,
+      "img": "sql_string",
+      "name": "String",
+      "title": "String Functions",
+      "subText": "Working with text data in SQL",
+      "level": "easy"
+    },
+    {
+      "id": 108,
+      "img": "sql_groupby",
+      "name": "GroupBy",
+      "title": "GROUP BY & ROLLUP",
+      "subText": "Grouping and summarizing data",
+      "level": "intermediate"
+    },
+    {
+      "id": 109,
+      "img": "sql_having",
+      "name": "Having",
+      "title": "HAVING Clause",
+      "subText": "Filtering grouped data",
+      "level": "intermediate"
+    },
+    {
+      "id": 110,
+      "img": "sql_joins",
+      "name": "Joins",
+      "title": "SQL Joins",
+      "subText": "Combining data from multiple tables",
+      "level": "intermediate"
+    },
+    {
+      "id": 111,
+      "img": "sql_relationships",
+      "name": "Relationships",
+      "title": "Table Relationships",
+      "subText": "Primary and foreign key relationships",
+      "level": "intermediate"
+    },
+    {
+      "id": 112,
+      "img": "sql_views",
+      "name": "Views",
+      "title": "SQL Views",
+      "subText": "Virtual tables using queries",
+      "level": "intermediate"
+    },
+    {
+      "id": 113,
+      "img": "sql_alter",
+      "name": "Alter",
+      "title": "ALTER Statements",
+      "subText": "Modifying table structure",
+      "level": "intermediate"
+    },
+    {
+      "id": 114,
+      "img": "sql_constraints",
+      "name": "Constraints",
+      "title": "SQL Constraints",
+      "subText": "Rules applied on table columns",
+      "level": "intermediate"
+    },
+    {
+      "id": 115,
+      "img": "sql_case",
+      "name": "Case",
+      "title": "CASE Expression",
+      "subText": "Conditional logic in SQL queries",
+      "level": "intermediate"
+    },
+    {
+      "id": 116,
+      "img": "sql_window",
+      "name": "Window",
+      "title": "Window Functions",
+      "subText": "Advanced analytics over rows",
+      "level": "advanced"
+    },
+    {
+      "id": 117,
+      "img": "sql_cte",
+      "name": "CTE",
+      "title": "Common Table Expressions",
+      "subText": "Temporary result sets in SQL",
+      "level": "advanced"
+    },
+    {
+      "id": 118,
+      "img": "sql_triggers",
+      "name": "Triggers",
+      "title": "Triggers",
+      "subText": "Automatic actions on database events",
+      "level": "advanced"
     }
   ]
 }
