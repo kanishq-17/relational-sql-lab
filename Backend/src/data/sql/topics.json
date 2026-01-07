@@ -10,10 +10,10 @@
     },
     {
       "id": 102,
-      "img": "sql_basic",
-      "name": "Basic",
-      "title": "SQL Basics",
-      "subText": "Tables, rows, columns and basic concepts",
+      "img": "sql_crud",
+      "name": "CRUD",
+      "title": "CRUD Operations",
+      "subText": "Create, Read, Update and Delete data",
       "level": "easy"
     },
     {
@@ -26,14 +26,6 @@
     },
     {
       "id": 104,
-      "img": "sql_crud",
-      "name": "CRUD",
-      "title": "CRUD Operations",
-      "subText": "Create, Read, Update and Delete data",
-      "level": "easy"
-    },
-    {
-      "id": 105,
       "img": "sql_conditions",
       "name": "Conditions",
       "title": "Conditional Queries",
@@ -41,7 +33,7 @@
       "level": "easy"
     },
     {
-      "id": 106,
+      "id": 105,
       "img": "sql_aggregate",
       "name": "Aggregate",
       "title": "Aggregate Functions",
@@ -49,7 +41,7 @@
       "level": "easy"
     },
     {
-      "id": 107,
+      "id": 106,
       "img": "sql_string",
       "name": "String",
       "title": "String Functions",
@@ -57,7 +49,7 @@
       "level": "easy"
     },
     {
-      "id": 108,
+      "id": 107,
       "img": "sql_groupby",
       "name": "GroupBy",
       "title": "GROUP BY & ROLLUP",
@@ -65,7 +57,7 @@
       "level": "intermediate"
     },
     {
-      "id": 109,
+      "id": 108,
       "img": "sql_having",
       "name": "Having",
       "title": "HAVING Clause",
@@ -73,7 +65,7 @@
       "level": "intermediate"
     },
     {
-      "id": 110,
+      "id": 109,
       "img": "sql_joins",
       "name": "Joins",
       "title": "SQL Joins",
@@ -81,7 +73,7 @@
       "level": "intermediate"
     },
     {
-      "id": 111,
+      "id": 110,
       "img": "sql_relationships",
       "name": "Relationships",
       "title": "Table Relationships",
@@ -89,7 +81,7 @@
       "level": "intermediate"
     },
     {
-      "id": 112,
+      "id": 111,
       "img": "sql_views",
       "name": "Views",
       "title": "SQL Views",
@@ -97,7 +89,7 @@
       "level": "intermediate"
     },
     {
-      "id": 113,
+      "id": 112,
       "img": "sql_alter",
       "name": "Alter",
       "title": "ALTER Statements",
@@ -105,7 +97,7 @@
       "level": "intermediate"
     },
     {
-      "id": 114,
+      "id": 113,
       "img": "sql_constraints",
       "name": "Constraints",
       "title": "SQL Constraints",
@@ -113,7 +105,7 @@
       "level": "intermediate"
     },
     {
-      "id": 115,
+      "id": 114,
       "img": "sql_case",
       "name": "Case",
       "title": "CASE Expression",
@@ -121,7 +113,7 @@
       "level": "intermediate"
     },
     {
-      "id": 116,
+      "id": 115,
       "img": "sql_window",
       "name": "Window",
       "title": "Window Functions",
@@ -129,7 +121,7 @@
       "level": "advanced"
     },
     {
-      "id": 117,
+      "id": 116,
       "img": "sql_cte",
       "name": "CTE",
       "title": "Common Table Expressions",
@@ -137,7 +129,7 @@
       "level": "advanced"
     },
     {
-      "id": 118,
+      "id": 117,
       "img": "sql_triggers",
       "name": "Triggers",
       "title": "Triggers",
