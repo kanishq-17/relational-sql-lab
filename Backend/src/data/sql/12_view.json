@@ -1,0 +1,71 @@
+{
+  "id": 112,
+  "topic": "view",
+  "title": "Views in SQL",
+  "definition": "A view is a virtual table created using a SELECT query. It does not store data itself but shows data from the base table dynamically.",
+
+  "base_table": {
+    "name": "employee",
+    "columns": ["emp_id", "full_name", "department", "salary"],
+    "rows": [
+      [1, "Amit Sharma", "IT", 75000],
+      [2, "Neha Verma", "HR", 52000],
+      [3, "Rohit Jain", "IT", 68000],
+      [4, "Kavita Joshi", "Finance", 45000]
+    ]
+  },
+
+  "sections": {
+    "create_view": {
+      "heading": "Create a View",
+      "query": "CREATE VIEW high_salary_employees AS SELECT full_name, department, salary FROM employee WHERE salary > 60000;",
+      "output": {
+        "columns": ["full_name", "department", "salary"],
+        "rows": [
+          ["Amit Sharma", "IT", 75000],
+          ["Rohit Jain", "IT", 68000]
+        ]
+      }
+    },
+
+    "use_view": {
+      "heading": "Use a View",
+      "query": "SELECT * FROM high_salary_employees;",
+      "output": {
+        "columns": ["full_name", "department", "salary"],
+        "rows": [
+          ["Amit Sharma", "IT", 75000],
+          ["Rohit Jain", "IT", 68000]
+        ]
+      }
+    },
+
+    "update_view": {
+      "heading": "Update / Replace a View",
+      "query": "CREATE OR REPLACE VIEW high_salary_employees AS SELECT full_name, department, salary FROM employee WHERE salary > 50000;",
+      "output": {
+        "columns": ["full_name", "department", "salary"],
+        "rows": [
+          ["Amit Sharma", "IT", 75000],
+          ["Neha Verma", "HR", 52000],
+          ["Rohit Jain", "IT", 68000]
+        ]
+      }
+    },
+
+    "drop_view": {
+      "heading": "Drop a View",
+      "query": "DROP VIEW high_salary_employees;",
+      "note": "Dropping a view does not affect the base table."
+    },
+
+    "important_notes": {
+      "heading": "Important Notes",
+      "points": [
+        "A view does not store data",
+        "It always shows the latest data from the base table",
+        "Views are used to simplify complex queries"
+      ]
+    }
+  }
+}

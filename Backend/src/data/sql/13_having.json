@@ -1,0 +1,70 @@
+{
+  "id": 113,
+  "topic": "having",
+  "title": "HAVING Clause in SQL",
+  "definition": "HAVING is used to filter grouped data after applying GROUP BY. It is mainly used with aggregate functions.",
+
+  "base_table": {
+    "name": "orders",
+    "columns": ["order_id", "customer", "amount"],
+    "rows": [
+      [1, "Rahul", 300],
+      [2, "Rahul", 450],
+      [3, "Neha", 200],
+      [4, "Neha", 400],
+      [5, "Amit", 150]
+    ]
+  },
+
+  "sections": {
+    "basic_having": {
+      "heading": "Basic HAVING Example",
+      "query": "SELECT customer, SUM(amount) FROM orders GROUP BY customer HAVING SUM(amount) > 500;",
+      "output": {
+        "columns": ["customer", "total_amount"],
+        "rows": [
+          ["Rahul", 750],
+          ["Neha", 600]
+        ]
+      }
+    },
+
+    "having_with_count": {
+      "heading": "HAVING with COUNT",
+      "query": "SELECT customer, COUNT(order_id) FROM orders GROUP BY customer HAVING COUNT(order_id) > 1;",
+      "output": {
+        "columns": ["customer", "total_orders"],
+        "rows": [
+          ["Rahul", 2],
+          ["Neha", 2]
+        ]
+      }
+    },
+
+    "having_with_avg": {
+      "heading": "HAVING with AVG",
+      "query": "SELECT customer, AVG(amount) FROM orders GROUP BY customer HAVING AVG(amount) > 250;",
+      "output": {
+        "columns": ["customer", "avg_amount"],
+        "rows": [
+          ["Rahul", 375],
+          ["Neha", 300]
+        ]
+      }
+    },
+
+    "where_vs_having": {
+      "heading": "WHERE vs HAVING",
+      "comparison": {
+        "where": "Filters rows before grouping",
+        "having": "Filters groups after grouping"
+      }
+    },
+
+    "common_mistake": {
+      "heading": "Common Mistake",
+      "wrong_query": "SELECT customer, SUM(amount) FROM orders WHERE SUM(amount) > 500 GROUP BY customer;",
+      "correct_query": "SELECT customer, SUM(amount) FROM orders GROUP BY customer HAVING SUM(amount) > 500;"
+    }
+  }
+}
