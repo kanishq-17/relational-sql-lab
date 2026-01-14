@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="top-4 z-50">
+    <nav className="top-4 z-50 bg-transparent">
       <div className="flex items-center justify-between bg-white/10 backdrop-blur-md rounded-lg p-4 w-[96%] mx-auto my-4">
         {/* Logo */}
-        <h2 className="text-lg font-medium text-white">RelationalSQL Lab</h2>
+        <Link to="/">
+          <h2 className="text-lg font-medium text-white">RelationalSQL Lab</h2>
+        </Link>
 
         {/* Links */}
         <div className="flex items-center gap-10 text-sm font-light text-gray-200">
@@ -15,12 +17,14 @@ const Navbar = () => {
           >
             Databases
           </p>
-          <p
-            className="hover:text-cyan-400 transition cursor-pointer"
-            to="/sql"
-          >
-            SQL Lab
-          </p>
+          <Link to="/sql">
+            <p
+              className="hover:text-cyan-400 transition cursor-pointer"
+              to="/sql"
+            >
+              SQL Lab
+            </p>
+          </Link>
           <p
             className="hover:text-cyan-400 transition cursor-pointer"
             to="/mongodb"
